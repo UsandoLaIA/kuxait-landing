@@ -47,7 +47,7 @@ Abrir `http://localhost:8080`. No hace falta instalar nada.
 - La IP es la misma que tiene el registro A de `usandolaia.com` en su zona de Cloudflare (ahí se ve el origen aunque esté proxied). La API de Coolify no la expone: el servidor figura como `localhost`.
 - Primero con **DNS only** para que Traefik emita el certificado Let's Encrypt. Una vez emitido, se puede prender el proxy naranja con SSL/TLS en modo **Full (strict)**.
 - En Coolify: nuevo recurso desde el repo de GitHub, build pack **Dockerfile**, puerto 80, dominios `https://www.kuxait.com,https://kuxait.com`, y en la config del dominio activar la redirección de non-www a www.
-- Repo: https://github.com/UsandoLaIA/kuxait-landing (público, rama `main`). App en Coolify: proyecto **Kuxait**, aplicación `kuxait-landing`, fuente Public GitHub. Después de cada `git push`, hay que apretar **Deploy** en Coolify (no hay webhook configurado).
+- Repo: https://github.com/UsandoLaIA/kuxait-landing (público, rama `main`). App en Coolify: proyecto **Kuxait**, aplicación `kuxait-landing`, conectada por GitHub App. Cada `git push` a `main` dispara el deploy automáticamente.
 - Deploy inicial hecho el 24/11/2026. IP del servidor: 38.242.248.93 (A `@` y CNAME `www` en Cloudflare, DNS only).
 
 ## Antes de publicar (checklist)
