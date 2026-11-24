@@ -1,0 +1,51 @@
+# Kuxait
+
+> Kuxait LLC implements AI inside the way companies actually operate (their information, their systems and the teams that run them) and designs the high-performance teams that keep it running. Clients range from small businesses to large enterprises. Work is remote-first, worldwide, in English or Spanish.
+
+## What Kuxait does
+
+- AI implementation: assistants, automations and models that work on a company's real information; integration with existing systems (ERP, spreadsheets, Google Workspace, Microsoft 365); information architecture (one place per data item, access by role); process formalization that is auditable and ISO 9001-ready.
+- High-performance team design: operating rhythm (daily signals, weekly decisions, monthly reviews, quarterly direction), ownership design (one owner per process, explicit handoffs), visibility (indicators and dashboards per area), AI fluency by role, and team autonomy to maintain and retrain AI tools.
+
+## The method: three blocks, seven stages
+
+1. Diagnosis — a form and an interview per person (40 to 90 minutes): role, where information lives, tools, AI level. Output: support needed per person; team readiness map.
+2. Workflow mapping — swimlane maps for the company and per area, one lane per role. Output: process maps; handoffs and waits made visible.
+3. Key findings — fishbone analysis grouped by people, information, technology and process. Output: the central finding and focus areas.
+4. Information architecture (2 to 4 weeks) — where each piece of information lives, who owns it, who sees it; dashboards that were missing. Output: access map per area.
+5. Prioritization and roadmap (2 to 3 days) — impact by effort matrix: quick wins, strategic, minor, discard. Output: sequenced roadmap with owners and prerequisites.
+6. AI access and governance (1 to 2 weeks, can run in parallel with 5 or 7) — cloud groups, per-role access, accounts on the model the client chooses, connection to data. Output: each person with their own account and access only to what belongs to their role.
+7. Applied AI and operating rhythm (ongoing, biweekly or monthly) — apply, measure, retrain; the team learns to maintain its own tools. Output: measured, accelerated tasks; a team that runs without Kuxait.
+
+Stages 1 to 5 are quoted at a fixed price. Stages 6 and 7 run as a monthly engagement. Training and leadership sessions are quoted per session.
+
+## Formats
+
+- Team training (teams and departments; on-site or remote)
+- Leadership sessions (executives and middle management)
+- Full implementation (SMEs and enterprises)
+
+## Roles required on the client side
+
+- Internal lead: one person, usually from Operations, Quality or IT.
+- Sponsor: owner, CEO or unit leader.
+Without both, the engagement does not start.
+
+## Principles
+
+- Structure before intelligence.
+- Teams before tools.
+- Measured, or it didn't happen.
+- Not every answer is AI.
+
+## Pages
+
+- Home: https://www.kuxait.com/
+- Terms & Conditions: https://www.kuxait.com/terms.html
+- Refund Policy: https://www.kuxait.com/refund-policy.html
+- Privacy Policy: https://www.kuxait.com/privacy-policy.html
+
+## Contact
+
+- Email: hello@kuxait.com
+- Kuxait does not publish team members' names. All communication goes through the company.
