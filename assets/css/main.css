@@ -305,6 +305,8 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
 .principle p { color: var(--fg-2); font-size: 1rem; }
 .principle::after { content: ""; position: absolute; right: -20px; bottom: -20px; width: 92px; height: 92px; border-radius: 50%; background: var(--acc-soft); transform: scale(0); transition: transform .7s var(--ease); }
 .principle:hover::after { transform: scale(1); }
+.principles--compact .principle { min-height: 0; padding: 22px 26px; gap: 10px; grid-template-columns: auto 1fr; align-items: baseline; }
+.principles--compact .principle h3 { font-size: 1.2rem; }
 
 /* --------------------------------------------------------------------------
    Services bento
@@ -330,7 +332,7 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
 .card {
   --mx: 50%; --my: 50%;
   position: relative; border-radius: var(--r-lg); background: var(--bg-2); padding: 26px 24px 24px;
-  min-height: 236px; display: grid; align-content: space-between; gap: 22px; overflow: hidden;
+  min-height: 196px; display: grid; align-content: space-between; gap: 22px; overflow: hidden;
   transition: transform .6s var(--ease), background .4s;
 }
 .card::before {
@@ -409,6 +411,15 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
 .viz-text { font-family: var(--font-mono); font-size: 7px; fill: var(--fg-mute); letter-spacing: .08em; }
 .stage__tag { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-mute); display: inline-flex; gap: 10px; align-items: center; }
 .stage__tag::before { content: ""; width: 14px; height: 1px; background: var(--acc); }
+
+/* roles strip (compact, under the method) */
+.roles-strip { margin-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--ln); padding-top: 28px; display: grid; gap: 18px; }
+.roles-strip > .mono { color: var(--fg-mute); text-transform: uppercase; font-size: .7rem; letter-spacing: .12em; }
+.roles-strip ul { display: grid; gap: 14px; }
+@media (min-width: 820px) { .roles-strip ul { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+.roles-strip li { color: var(--fg-2); font-size: .98rem; line-height: 1.45; padding-left: 16px; border-left: 1px solid var(--acc); }
+.roles-strip li b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 2px; }
+.roles-strip p { color: var(--fg); font-weight: 500; }
 
 /* --------------------------------------------------------------------------
    Teams (cadence)
@@ -497,7 +508,7 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
 .formats { display: grid; gap: 14px; }
 @media (min-width: 820px) { .formats { grid-template-columns: repeat(3, 1fr); } }
 .format {
-  border-radius: var(--r-lg); background: var(--bg-2); padding: 32px 28px; min-height: 340px;
+  border-radius: var(--r-lg); background: var(--bg-2); padding: 32px 28px; min-height: 280px;
   display: grid; align-content: space-between; gap: 28px; position: relative; overflow: hidden;
   transition: transform .6s var(--ease);
 }
@@ -543,6 +554,9 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
    -------------------------------------------------------------------------- */
 .contact { display: grid; gap: 48px; }
 @media (min-width: 960px) { .contact { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 72px; align-items: start; } }
+.start-mini { margin-top: 32px; display: grid; gap: 12px; max-width: 46ch; }
+.start-mini li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: var(--fg-2); font-size: .98rem; line-height: 1.4; }
+.start-mini li span { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; color: var(--acc); padding-top: 3px; }
 .contact__alt { margin-top: 36px; display: grid; gap: 10px; }
 .contact__alt a { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; letter-spacing: -.02em; display: inline-flex; align-items: center; gap: 12px; }
 .contact__alt a .arr { transition: transform .5s var(--ease); }
@@ -578,6 +592,7 @@ h3.display { font-size: clamp(1.4rem, 2.4vw, 2rem); font-stretch: 105%; }
 @media (min-width: 820px) { .footer__grid { grid-template-columns: 2fr 1fr 1fr; } }
 .footer .brand { color: var(--paper); font-size: 1.4rem; }
 .footer__tag { color: #8C8F99; max-width: 34ch; margin-top: 16px; }
+.footer__addr { font-style: normal; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; line-height: 1.7; color: #8C8F99; margin-top: 22px; }
 .footer h4 { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: #8C8F99; margin-bottom: 18px; }
 .footer__col ul { display: grid; gap: 10px; }
 .footer__col a { color: #D8D6CE; font-size: .95rem; transition: color .3s; }
