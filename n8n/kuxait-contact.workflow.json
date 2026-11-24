@@ -1,0 +1,109 @@
+{
+  "name": "Kuxait — contact form",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "kuxait-contact",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.kuxait.com,https://kuxait.com"
+        }
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "kuxait-contact"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "c-honeypot",
+              "leftValue": "={{ $json.body.website || '' }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "empty", "singleValue": true }
+            },
+            {
+              "id": "c-email",
+              "leftValue": "={{ $json.body.email || '' }}",
+              "rightValue": "@",
+              "operator": { "type": "string", "operation": "contains" }
+            },
+            {
+              "id": "c-message",
+              "leftValue": "={{ $json.body.message || '' }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "notEmpty", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Is a real lead?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "hello@kuxait.com",
+        "subject": "=Kuxait · new inquiry from {{ $('Webhook').item.json.body.company || $('Webhook').item.json.body.name }}",
+        "emailType": "html",
+        "message": "=<div style=\"font-family:Arial,sans-serif;font-size:15px;line-height:1.5;color:#0C0D10\">\n<p style=\"font-size:12px;letter-spacing:.1em;color:#6B6E78;text-transform:uppercase\">kuxait.com · contact form</p>\n<table cellpadding=\"6\" style=\"border-collapse:collapse\">\n<tr><td style=\"color:#6B6E78\">Name</td><td><b>{{ $('Webhook').item.json.body.name }}</b></td></tr>\n<tr><td style=\"color:#6B6E78\">Email</td><td><a href=\"mailto:{{ $('Webhook').item.json.body.email }}\">{{ $('Webhook').item.json.body.email }}</a></td></tr>\n<tr><td style=\"color:#6B6E78\">Company</td><td>{{ $('Webhook').item.json.body.company }}</td></tr>\n<tr><td style=\"color:#6B6E78\">Size</td><td>{{ $('Webhook').item.json.body.size }}</td></tr>\n</table>\n<p style=\"color:#6B6E78;margin-top:18px\">Which process is slowing them down:</p>\n<blockquote style=\"border-left:3px solid #1E2BE6;margin:0;padding:8px 14px;white-space:pre-wrap\">{{ $('Webhook').item.json.body.message }}</blockquote>\n<p style=\"font-size:12px;color:#9B9EA7;margin-top:24px\">Reply to this email to answer the lead directly.</p>\n</div>",
+        "options": {
+          "appendAttribution": false,
+          "replyTo": "={{ $('Webhook').item.json.body.email }}",
+          "senderName": "Kuxait website"
+        }
+      },
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Email hello@kuxait.com",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [540, -120]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"ok\": true } }}",
+        "options": { "responseCode": 200 }
+      },
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [820, -120]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"ok\": true } }}",
+        "options": { "responseCode": 200 }
+      },
+      "id": "a1b2c3d4-0005-4000-8000-000000000005",
+      "name": "Respond OK (dropped)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [540, 140]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Is a real lead?", "type": "main", "index": 0 }]] },
+    "Is a real lead?": {
+      "main": [
+        [{ "node": "Email hello@kuxait.com", "type": "main", "index": 0 }],
+        [{ "node": "Respond OK (dropped)", "type": "main", "index": 0 }]
+      ]
+    },
+    "Email hello@kuxait.com": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false
+}
